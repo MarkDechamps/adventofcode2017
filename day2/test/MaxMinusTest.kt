@@ -23,15 +23,43 @@ class MaxMinusTest {
         //
         assertEquals(MaxMinus().maxMinMin("2 4 6 8"),6)
     }
+
+    @Test
+    fun testDivision() {
+        //
+        assertEquals(MaxMinus().evenDivision("5 1 9 5"),4)
+        //
+        assertEquals(MaxMinus().evenDivision("7 5 3"),3)
+        //
+        assertEquals(MaxMinus().evenDivision("2 4 6 8"),2)
+    }
+
+    @Test
+    fun testDividesEvenlyWith() {
+        assertEquals(MaxMinus().dividesEvenlyWith(6,listOf(3)),2)
+        assertEquals(MaxMinus().dividesEvenlyWith(3,listOf(6)),2)
+        assertEquals(MaxMinus().dividesEvenlyWith(3,listOf(2,6,5)),2)
+        assertEquals(MaxMinus().dividesEvenlyWith(3,listOf(7,6,2,6,5)),2)
+    }
+
     @Test
     fun solution(){
         println(strings.stream().map{s->MaxMinus().maxMinMin(s)}
                 .collect(Collectors.toList()).sum())
     }
 
+    @Test
+    fun solution2(){
+        println(strings.stream().map{s->MaxMinus().evenDivision(s)}
+                .collect(Collectors.toList()).sum())
+    }
 
+    @Test
+    fun testSingleLine(){
+        println(MaxMinus().evenDivision(strings[0]))
+    }
 
-    val strings =listOf(
+    private val strings =listOf(
     "1224	926	1380	688	845	109	118	88	1275	1306	91	796	102	1361	27	995",
     "1928	2097	138	1824	198	117	1532	2000	1478	539	1982	125	1856	139	475	1338",
     "848	202	1116	791	1114	236	183	186	150	1016	1258	84	952	1202	988	866",
